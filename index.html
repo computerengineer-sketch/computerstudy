@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Ensure the video covers the entire screen */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover; /* Keeps the video proportional */
+            z-index: -1; /* Places the video in the background */
+        }
+    </style>
+</head>
+<body>
+    <video id="myVideo" src="funny.mp4" autoplay muted></video>
+
+    <script>
+        $(document).ready(function() {
+            var video = $("#myVideo").get(0);
+            video.currentTime = 20;  // Set the start time to 20 seconds
+
+            // Ensure the video starts playing from 20 seconds
+            video.onloadedmetadata = function() {
+                video.play();
+            };
+        });
+    </script>
+</body>
+</html>
